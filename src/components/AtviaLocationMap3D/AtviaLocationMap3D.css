@@ -1,0 +1,435 @@
+/* ====================================================================
+   ATVIA LOCATION INTERACTIVE GOOGLE MAPS COMPONENT
+   Fasilitas Manufaktur, Detailing & Distribusi (Atvia Jaya)
+   Swiss Grid Architecture • High-Precision Technical Design
+   ==================================================================== */
+
+.atvia-map-section {
+  padding-top: clamp(3.5rem, 5vw, 5.5rem);
+  padding-bottom: clamp(3.5rem, 6vw, 6rem);
+  background-color: var(--color-bg, #FFFFFF);
+  color: var(--color-text-primary, #0F172A);
+  transition: background-color 200ms ease, color 200ms ease;
+  position: relative;
+}
+
+:root[data-theme="dark"] .atvia-map-section {
+  background-color: #090D16;
+  color: #F8FAFC;
+}
+
+/* 12-Column Grid Architecture (4 Col Left Info + 8 Col Right Map) */
+.atvia-map-grid {
+  display: grid;
+  grid-template-columns: 4fr 8fr;
+  gap: clamp(1.75rem, 3.5vw, 3rem);
+  align-items: stretch;
+}
+
+@media (max-width: 1024px) {
+  .atvia-map-grid {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+}
+
+/* ====================================================================
+   KOLOM KIRI: PANEL INFORMASI FASILITAS & DISTRIBUSI (4 SPAN)
+   ==================================================================== */
+
+.atvia-map-info-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.75rem;
+}
+
+.atvia-map-info__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.atvia-map-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent, #DC2626);
+}
+
+.atvia-map-title {
+  font-size: clamp(1.5rem, 2.25vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--color-text-primary, #0F172A);
+  line-height: 1.2;
+  margin: 0;
+}
+
+:root[data-theme="dark"] .atvia-map-title {
+  color: #F8FAFC;
+}
+
+.atvia-map-desc {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary, #475569);
+  margin: 0;
+}
+
+:root[data-theme="dark"] .atvia-map-desc {
+  color: #94A3B8;
+}
+
+/* 3 Kartu Spesifikasi Lokasi Teknis */
+.atvia-map-specs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.atvia-map-spec-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  padding: 0.875rem 1.125rem;
+  background-color: var(--color-surface, #FFFFFF);
+  border: 1px solid var(--color-border, #E2E8F0);
+  border-radius: 8px;
+  transition: border-color 150ms ease, background-color 150ms ease;
+}
+
+:root[data-theme="dark"] .atvia-map-spec-item {
+  background-color: #111827;
+  border-color: #1E293B;
+}
+
+.atvia-map-spec-item:hover {
+  border-color: #94A3B8;
+}
+
+:root[data-theme="dark"] .atvia-map-spec-item:hover {
+  border-color: #334155;
+}
+
+.atvia-map-spec-item__icon {
+  width: 32px;
+  height: 32px;
+  background-color: rgba(220, 38, 38, 0.08);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent, #DC2626);
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+:root[data-theme="dark"] .atvia-map-spec-item__icon {
+  background-color: rgba(220, 38, 38, 0.15);
+  border-color: rgba(220, 38, 38, 0.3);
+}
+
+.atvia-map-spec-item__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1875rem;
+  flex: 1;
+}
+
+.atvia-map-spec-item__label {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary, #64748B);
+}
+
+:root[data-theme="dark"] .atvia-map-spec-item__label {
+  color: #94A3B8;
+}
+
+.atvia-map-spec-item__value {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-primary, #0F172A);
+  line-height: 1.45;
+}
+
+:root[data-theme="dark"] .atvia-map-spec-item__value {
+  color: #F8FAFC;
+}
+
+.atvia-map-spec-item__link {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-accent, #DC2626);
+  line-height: 1.45;
+  text-decoration: none;
+  transition: opacity 150ms ease, text-decoration 150ms ease;
+  word-break: break-all;
+}
+
+.atvia-map-spec-item__link:hover {
+  text-decoration: underline;
+  opacity: 0.85;
+}
+
+/* 2 Tombol Aksi (CTA) */
+.atvia-map-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  margin-top: auto;
+}
+
+.atvia-btn-map-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--color-accent, #DC2626);
+  color: #FFFFFF;
+  padding: 0.8125rem 1.25rem;
+  font-size: 0.84375rem;
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 150ms ease-out, transform 150ms ease-out;
+  text-align: center;
+}
+
+.atvia-btn-map-primary:hover {
+  background-color: var(--color-accent-hover, #B91C1C);
+  transform: translateY(-1px);
+}
+
+.atvia-btn-map-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--color-surface, #FFFFFF);
+  border: 1px solid var(--color-border, #E2E8F0);
+  color: var(--color-text-primary, #0F172A);
+  padding: 0.75rem 1.25rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 160ms ease-out;
+  text-align: center;
+}
+
+.atvia-btn-map-secondary:hover {
+  background-color: var(--color-surface-muted, #F8FAFC);
+  border-color: var(--color-text-primary, #0F172A);
+  transform: translateY(-1px);
+}
+
+:root[data-theme="dark"] .atvia-btn-map-secondary {
+  background-color: #111827;
+  border-color: #1E293B;
+  color: #F8FAFC;
+}
+
+:root[data-theme="dark"] .atvia-btn-map-secondary:hover {
+  background-color: #1E293B;
+  border-color: #334155;
+}
+
+/* ====================================================================
+   KOLOM KANAN: PANEL CANVAS INTERAKTIF GOOGLE MAPS (8 SPAN)
+   ==================================================================== */
+
+.atvia-map-canvas-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+/* Toolbar Atas Canvas */
+.atvia-gmaps-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.125rem 0;
+  flex-wrap: wrap;
+}
+
+.atvia-gmaps-mode-group {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background-color: var(--color-surface-muted, #F8FAFC);
+  border: 1px solid var(--color-border, #E2E8F0);
+  padding: 0.25rem;
+  border-radius: 8px;
+}
+
+:root[data-theme="dark"] .atvia-gmaps-mode-group {
+  background-color: #111827;
+  border-color: #1E293B;
+}
+
+.atvia-gmaps-mode-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background: none;
+  border: none;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-secondary, #475569);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 140ms ease;
+}
+
+:root[data-theme="dark"] .atvia-gmaps-mode-btn {
+  color: #94A3B8;
+}
+
+.atvia-gmaps-mode-btn:hover {
+  color: var(--color-text-primary, #0F172A);
+}
+
+:root[data-theme="dark"] .atvia-gmaps-mode-btn:hover {
+  color: #F8FAFC;
+}
+
+.atvia-gmaps-mode-btn--active {
+  background-color: #FFFFFF;
+  color: var(--color-accent, #DC2626);
+  font-weight: 700;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+:root[data-theme="dark"] .atvia-gmaps-mode-btn--active {
+  background-color: #1E293B;
+  color: #FFFFFF;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Toolbar Action Buttons (Petunjuk Rute & Buka di Google Maps) */
+.atvia-gmaps-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.atvia-toolbar-btn-rute {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background-color: var(--color-accent, #DC2626);
+  color: #FFFFFF;
+  padding: 0.4375rem 0.8125rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 150ms ease, transform 150ms ease;
+}
+
+.atvia-toolbar-btn-rute:hover {
+  background-color: var(--color-accent-hover, #B91C1C);
+  transform: translateY(-1px);
+}
+
+.atvia-gmaps-external-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background-color: var(--color-surface, #FFFFFF);
+  border: 1px solid var(--color-border, #E2E8F0);
+  color: var(--color-text-secondary, #475569);
+  text-decoration: none;
+  padding: 0.4375rem 0.75rem;
+  border-radius: 6px;
+  transition: all 140ms ease;
+}
+
+:root[data-theme="dark"] .atvia-gmaps-external-link {
+  background-color: #111827;
+  border-color: #1E293B;
+  color: #94A3B8;
+}
+
+.atvia-gmaps-external-link:hover {
+  border-color: var(--color-text-primary, #0F172A);
+  color: var(--color-text-primary, #0F172A);
+}
+
+:root[data-theme="dark"] .atvia-gmaps-external-link:hover {
+  border-color: #475569;
+  color: #F8FAFC;
+}
+
+/* ====================================================================
+   FRAME CANVAS GOOGLE MAPS INTERAKTIF
+   Murni embed Google Maps asli tanpa pop up custom yang menutupi
+   ==================================================================== */
+
+.atvia-gmaps-canvas-frame {
+  position: relative;
+  width: 100%;
+  height: 560px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--color-border, #E2E8F0);
+  background-color: #F8FAFC;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+}
+
+:root[data-theme="dark"] .atvia-gmaps-canvas-frame {
+  border-color: #1E293B;
+  background-color: #0B0F19;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+.atvia-gmaps-interactive-iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  border-radius: 16px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .atvia-gmaps-canvas-frame {
+    height: 440px;
+  }
+
+  .atvia-gmaps-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.625rem;
+  }
+
+  .atvia-gmaps-mode-group {
+    justify-content: center;
+  }
+
+  .atvia-gmaps-toolbar-actions {
+    justify-content: stretch;
+  }
+
+  .atvia-toolbar-btn-rute,
+  .atvia-gmaps-external-link {
+    flex: 1;
+    justify-content: center;
+  }
+}

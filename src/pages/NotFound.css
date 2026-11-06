@@ -1,0 +1,38 @@
+.not-found-page {
+  padding-block: clamp(5rem, 10vw, 8rem);
+  text-align: center;
+  background-color: var(--color-surface);
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  transition: var(--theme-transition);
+}
+
+.not-found__box {
+  max-width: 540px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.not-found__code {
+  font-family: var(--font-headline);
+  font-size: 5rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--color-brand-red);
+}
+
+.not-found__title {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+.not-found__desc {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}

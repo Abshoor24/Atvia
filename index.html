@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ATVIA — Perawatan Presisi Kendaraan dan Ruang</title>
+    <meta name="description" content="ATVIA menghadirkan rangkaian produk perawatan kendaraan dan kebersihan ruang dengan formula tepat guna untuk hasil bersih, rapi, dan konsisten." />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="ATVIA — Perawatan Presisi Kendaraan dan Ruang" />
+    <meta property="og:description" content="Produk perawatan kendaraan dan kebersihan ruang. Bersih, kilap, dan terlindungi." />
+    <meta property="og:type" content="website" />
+
+    <!-- Google Fonts: Archivo (Headline) & Instrument Sans (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Theme Initialization Script (Zero-Flicker) -->
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('atvia-theme');
+          var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (saved === 'dark' || (!saved && prefersDark)) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

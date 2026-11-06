@@ -1,0 +1,398 @@
+/* ====================================================================
+   LIGHTWEIGHT PRODUCT SPECS (MOBILE-OPTIMIZED SWISS LAB DESIGN)
+   Zero Heavy WebGL • Instant Paint • Pure Structural Lines
+   ==================================================================== */
+
+.light-specs-module {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-top: 2rem;
+  margin-bottom: 3.5rem;
+}
+
+@media (max-width: 640px) {
+  .light-specs-module {
+    gap: 1.75rem;
+    margin-top: 1.25rem;
+    margin-bottom: 2.25rem;
+  }
+}
+
+.light-specs-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.light-specs-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.light-specs-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent, #DC2626);
+}
+
+.light-specs-title {
+  font-size: clamp(1.25rem, 2vw, 1.625rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary, #0F172A);
+  margin: 0;
+  line-height: 1.25;
+}
+
+:root[data-theme="dark"] .light-specs-title {
+  color: #F8FAFC;
+}
+
+.light-specs-sub {
+  font-size: 0.84375rem;
+  line-height: 1.55;
+  color: var(--color-text-secondary, #475569);
+  margin: 0;
+}
+
+:root[data-theme="dark"] .light-specs-sub {
+  color: #94A3B8;
+}
+
+/* ====================================================================
+   1. PARAMETER TEKNIS (4 KARTU BERSIH)
+   ==================================================================== */
+
+.light-specs-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 640px) {
+  .light-specs-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.light-spec-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  background-color: var(--color-surface, #FFFFFF);
+  border: 1px solid var(--color-border, #E2E8F0);
+  border-radius: 8px;
+  padding: 1rem 1.125rem;
+  transition: border-color 140ms ease;
+}
+
+:root[data-theme="dark"] .light-spec-card {
+  background-color: #111827;
+  border-color: #1E293B;
+}
+
+.light-spec-card:hover {
+  border-color: #94A3B8;
+}
+
+:root[data-theme="dark"] .light-spec-card:hover {
+  border-color: #334155;
+}
+
+.light-spec-card__icon-wrap {
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  background-color: rgba(220, 38, 38, 0.08);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent, #DC2626);
+  flex-shrink: 0;
+}
+
+:root[data-theme="dark"] .light-spec-card__icon-wrap {
+  background-color: rgba(220, 38, 38, 0.15);
+  border-color: rgba(220, 38, 38, 0.3);
+}
+
+.light-spec-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.light-spec-card__label {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary, #64748B);
+}
+
+:root[data-theme="dark"] .light-spec-card__label {
+  color: #94A3B8;
+}
+
+.light-spec-card__val {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-primary, #0F172A);
+  line-height: 1.4;
+}
+
+:root[data-theme="dark"] .light-spec-card__val {
+  color: #F8FAFC;
+}
+
+/* ====================================================================
+   2. PANDUAN APLIKASI PRAKTIS (LANGKAH 1-2-3 RINGKAS)
+   ==================================================================== */
+
+.light-steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.light-step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background-color: var(--color-surface, #FFFFFF);
+  border: 1px solid var(--color-border, #E2E8F0);
+  border-radius: 8px;
+  padding: 0.875rem 1.125rem;
+}
+
+:root[data-theme="dark"] .light-step-item {
+  background-color: #111827;
+  border-color: #1E293B;
+}
+
+.light-step-item__num {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background-color: var(--color-surface-muted, #F8FAFC);
+  border: 1px solid var(--color-border, #E2E8F0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: var(--color-accent, #DC2626);
+  flex-shrink: 0;
+}
+
+:root[data-theme="dark"] .light-step-item__num {
+  background-color: #0B0F19;
+  border-color: #1E293B;
+  color: #F87171;
+}
+
+.light-step-item__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.light-step-item__title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-text-primary, #0F172A);
+  margin: 0;
+}
+
+:root[data-theme="dark"] .light-step-item__title {
+  color: #F8FAFC;
+}
+
+.light-step-item__desc {
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--color-text-secondary, #475569);
+  margin: 0;
+}
+
+:root[data-theme="dark"] .light-step-item__desc {
+  color: #94A3B8;
+}
+
+/* ====================================================================
+   3. PROTOKOL ANJURAN & PANTANGAN
+   ==================================================================== */
+
+.light-protocol-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .light-protocol-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.light-protocol-box {
+  border-radius: 8px;
+  padding: 1.125rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.light-protocol-box--dos {
+  background-color: #F0FDF4;
+  border: 1px solid #BBF7D0;
+}
+
+:root[data-theme="dark"] .light-protocol-box--dos {
+  background-color: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+.light-protocol-box--donts {
+  background-color: #FEF2F2;
+  border: 1px solid #FECACA;
+}
+
+:root[data-theme="dark"] .light-protocol-box--donts {
+  background-color: rgba(220, 38, 38, 0.08);
+  border-color: rgba(220, 38, 38, 0.25);
+}
+
+.light-protocol-box__header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.light-protocol-box--dos .light-protocol-box__header {
+  color: #15803D;
+}
+
+:root[data-theme="dark"] .light-protocol-box--dos .light-protocol-box__header {
+  color: #34D399;
+}
+
+.light-protocol-box--donts .light-protocol-box__header {
+  color: #B91C1C;
+}
+
+:root[data-theme="dark"] .light-protocol-box--donts .light-protocol-box__header {
+  color: #F87171;
+}
+
+.light-protocol-box__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.light-protocol-box__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--color-text-primary, #0F172A);
+}
+
+:root[data-theme="dark"] .light-protocol-box__list li {
+  color: #F8FAFC;
+}
+
+.light-bullet-dos {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #16A34A;
+  margin-top: 0.4375rem;
+  flex-shrink: 0;
+}
+
+.light-bullet-donts {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #DC2626;
+  margin-top: 0.4375rem;
+  flex-shrink: 0;
+}
+
+/* ====================================================================
+   4. ALAT PENDUKUNG
+   ==================================================================== */
+
+.light-tools-box {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.875rem 1.125rem;
+  background-color: var(--color-surface, #FFFFFF);
+  border: 1px solid var(--color-border, #E2E8F0);
+  border-radius: 8px;
+  flex-wrap: wrap;
+}
+
+:root[data-theme="dark"] .light-tools-box {
+  background-color: #111827;
+  border-color: #1E293B;
+}
+
+.light-tools-box__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary, #64748B);
+}
+
+:root[data-theme="dark"] .light-tools-box__label {
+  color: #94A3B8;
+}
+
+.light-tools-box__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.light-tool-pill {
+  font-size: 0.75rem;
+  font-weight: 600;
+  background-color: var(--color-surface-muted, #F8FAFC);
+  border: 1px solid var(--color-border, #E2E8F0);
+  color: var(--color-text-primary, #0F172A);
+  padding: 0.25rem 0.625rem;
+  border-radius: 6px;
+}
+
+:root[data-theme="dark"] .light-tool-pill {
+  background-color: #0B0F19;
+  border-color: #1E293B;
+  color: #F8FAFC;
+}

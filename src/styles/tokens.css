@@ -1,0 +1,122 @@
+:root {
+  /* =========================================================
+     Exact ATVIA Swiss Lab Red Palette (#DC2626 / #B91C1C)
+     ========================================================= */
+  --color-brand-red: #DC2626;
+  --color-brand-red-hover: #B91C1C;
+  --color-brand-red-light: #FEF2F2;
+  --color-brand-red-glow: rgba(220, 38, 38, 0.20);
+
+  /* Aliases for backwards-compatibility */
+  --color-maroon: var(--color-brand-red);
+  --color-maroon-hover: var(--color-brand-red-hover);
+  --color-maroon-light: var(--color-brand-red-light);
+
+  /* Light Theme (Swiss Technical Grid) */
+  --color-white: #FFFFFF;
+  --color-surface: #FFFFFF;
+  --color-surface-subtle: #F8FAFC;
+  --color-card: #FFFFFF;
+  --color-card-border: #E2E8F0;
+  --color-ink: #0F172A;
+  --color-text-muted: #475569;
+  --color-text-subtle: #64748B;
+  --color-border: #E2E8F0;
+  --color-border-subtle: #F1F5F9;
+  --color-navbar-bg: rgba(255, 255, 255, 0.94);
+  --color-hero-media-bg: #14171B;
+  --color-code-bg: #F8FAFC;
+  --color-input-bg: #FFFFFF;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.06);
+
+  /* Semantic Protocol Colors */
+  --dos-bg: #F0FDF4;
+  --dos-border: #BBF7D0;
+  --dos-icon: #15803D;
+  --dos-text: #166534;
+
+  --donts-bg: #FEF2F2;
+  --donts-border: #FECACA;
+  --donts-icon: #B91C1C;
+  --donts-text: #991B1B;
+
+  /* Typography */
+  --font-headline: 'Archivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Spacing Scale */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4.5rem;
+  --space-4xl: 6rem;
+  --space-section: clamp(4rem, 7vw, 6.5rem);
+
+  /* Layout */
+  --container-max-width: 1240px;
+  --container-padding: clamp(1.25rem, 4vw, 2.5rem);
+
+  /* Radii */
+  --radius-xs: 3px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 160ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 240ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 360ms cubic-bezier(0.16, 1, 0.3, 1);
+  --theme-transition: background-color 0.22s ease, color 0.22s ease, border-color 0.22s ease;
+}
+
+/* =========================================================
+   Dark Theme (Swiss Industrial Dark / Obsidian Lab #090D16)
+   ========================================================= */
+:root[data-theme="dark"],
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-brand-red: #DC2626;
+  --color-brand-red-hover: #EF4444;
+  --color-brand-red-light: rgba(220, 38, 38, 0.15);
+  --color-brand-red-glow: rgba(220, 38, 38, 0.30);
+
+  --color-maroon: var(--color-brand-red);
+  --color-maroon-hover: var(--color-brand-red-hover);
+  --color-maroon-light: var(--color-brand-red-light);
+
+  --color-white: #090D16; /* Base background */
+  --color-surface: #090D16;
+  --color-surface-subtle: #0F172A;
+  --color-card: #111827;
+  --color-card-border: #1E293B;
+  --color-ink: #F8FAFC;
+  --color-text-muted: #94A3B8;
+  --color-text-subtle: #64748B;
+  --color-border: #1E293B;
+  --color-border-subtle: #172033;
+  --color-navbar-bg: rgba(9, 13, 22, 0.92);
+  --color-hero-media-bg: #0B0E14;
+  --color-code-bg: #111827;
+  --color-input-bg: #0D131F;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.5);
+
+  --dos-bg: rgba(22, 101, 52, 0.14);
+  --dos-border: rgba(34, 197, 94, 0.25);
+  --dos-icon: #22C55E;
+  --dos-text: #86EFAC;
+
+  --donts-bg: rgba(153, 27, 27, 0.14);
+  --donts-border: rgba(239, 68, 68, 0.25);
+  --donts-icon: #EF4444;
+  --donts-text: #FCA5A5;
+}

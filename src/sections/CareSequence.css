@@ -1,0 +1,1397 @@
+/* ====================================================================
+   ATVIA URUTAN PERAWATAN TERARAH (SWISS LAB AESTHETIC)
+   Interactive 4-Stage Pipeline Stepper & Technical 2D Schematic
+   Strict Anti-AI Slop • Crisp Industrial Precision
+   ==================================================================== */
+
+.care-section {
+  padding-top: clamp(3.5rem, 5vw, 5.5rem);
+  padding-bottom: clamp(3.5rem, 6vw, 6rem);
+  background-color: var(--color-bg, #FFFFFF);
+  color: var(--color-text-primary, #0F172A);
+  border-bottom: 1px solid var(--color-border, #E2E8F0);
+  transition: background-color 200ms ease, color 200ms ease;
+  position: relative;
+}
+
+:root[data-theme="dark"] .care-section {
+  background-color: #090D16;
+  color: #F8FAFC;
+  border-bottom-color: #1E293B;
+}
+
+/* ====================================================================
+   HEADER SEKSI: SWISS LAB TITLES & SUBTITLE
+   ==================================================================== */
+
+.care-section-header {
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.care-section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent, #DC2626);
+  margin-bottom: 0.5rem;
+}
+
+.care-section-title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--color-text-primary, #0F172A);
+  line-height: 1.2;
+  margin: 0 0 0.75rem 0;
+}
+
+:root[data-theme="dark"] .care-section-title {
+  color: #F8FAFC;
+}
+
+.care-section-lead {
+  font-size: clamp(0.9375rem, 1.25vw, 1.0625rem);
+  line-height: 1.65;
+  color: var(--color-text-secondary, #475569);
+  max-width: 48rem;
+  margin: 0;
+}
+
+:root[data-theme="dark"] .care-section-lead {
+  color: #94A3B8;
+}
+
+/* ====================================================================
+   BAGIAN ATAS: INTERACTIVE 4-STAGE PIPELINE STEPPER
+   Precision Swiss Grid • Exact Alignment • Zero AI-Slop
+   ==================================================================== */
+
+.care-pipeline-wrapper {
+  position: relative;
+  margin-top: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Hint Bar Interaktivitas & Status Tahap Terpilih */
+.care-pipeline-hint-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background-color: var(--color-surface-muted, #F8FAFC);
+  border: 1px solid var(--color-border, #E2E8F0);
+  border-radius: 8px;
+  padding: 0.625rem 1rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.8125rem;
+}
+
+:root[data-theme="dark"] .care-pipeline-hint-bar {
+  background-color: #0B1120;
+  border-color: #1E293B;
+}
+
+.care-pipeline-hint-left {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  flex-wrap: wrap;
+}
+
+.care-pipeline-hint-badge {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.625rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent, #DC2626);
+  background-color: #FEF2F2;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+:root[data-theme="dark"] .care-pipeline-hint-badge {
+  background-color: rgba(220, 38, 38, 0.15);
+  border-color: rgba(220, 38, 38, 0.3);
+  color: #F87171;
+}
+
+.care-pipeline-hint-text {
+  color: var(--color-text-secondary, #475569);
+  line-height: 1.4;
+}
+
+:root[data-theme="dark"] .care-pipeline-hint-text {
+  color: #94A3B8;
+}
+
+.care-pipeline-hint-right {
+  flex-shrink: 0;
+}
+
+.care-pipeline-hint-status {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  color: var(--color-text-secondary, #64748B);
+}
+
+:root[data-theme="dark"] .care-pipeline-hint-status {
+  color: #94A3B8;
+}
+
+.care-pipeline-hint-status strong {
+  color: var(--color-accent, #DC2626);
+}
+
+:root[data-theme="dark"] .care-pipeline-hint-status strong {
+  color: #F87171;
+}
+
+/* Stepper Track: 4 Kolom Angka dengan Garis Penghubung Terarah */
+.care-stepper-track-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1rem, 2vw, 1.75rem);
+  margin-bottom: 1.25rem;
+  position: relative;
+  z-index: 3;
+}
+
+.care-stepper-node-slot {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Kotak Nomor Stepper (44px x 44px) */
+.care-step-node-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-headline, sans-serif);
+  font-weight: 800;
+  font-size: 1.125rem;
+  background-color: var(--color-surface, #FFFFFF);
+  border: 1.5px solid var(--color-border, #E2E8F0);
+  color: var(--color-text-primary, #0F172A);
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+  flex-shrink: 0;
+  outline: none;
+}
+
+:root[data-theme="dark"] .care-step-node-btn {
+  background-color: #111827;
+  border-color: #1E293B;
+  color: #F8FAFC;
+}
+
+.care-step-node-btn:hover {
+  border-color: #94A3B8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.08);
+}
+
+:root[data-theme="dark"] .care-step-node-btn:hover {
+  border-color: #475569;
+}
+
+/* State Aktif Kotak Nomor */
+.care-step-node-btn.is-active {
+  background-color: #FEF2F2;
+  border: 2px solid var(--color-accent, #DC2626);
+  color: var(--color-accent, #DC2626);
+  box-shadow: 0 2px 10px rgba(220, 38, 38, 0.22);
+}
+
+:root[data-theme="dark"] .care-step-node-btn.is-active {
+  background-color: rgba(220, 38, 38, 0.15);
+  border-color: #DC2626;
+  color: #F87171;
+}
+
+/* State Nomor Tahap Terlewati */
+.care-step-node-btn.is-passed {
+  border-color: #94A3B8;
+  background-color: var(--color-surface, #FFFFFF);
+  color: var(--color-text-primary, #0F172A);
+}
+
+:root[data-theme="dark"] .care-step-node-btn.is-passed {
+  border-color: #334155;
+  background-color: #111827;
+  color: #94A3B8;
+}
+
+/* Garis Penghubung antar Nomor (Desktop & Tablet) */
+.care-step-segment-line {
+  flex: 1;
+  height: 2px;
+  background-color: var(--color-border, #E2E8F0);
+  margin-left: 0.5rem;
+  margin-right: calc(-1 * clamp(1rem, 2vw, 1.75rem)); /* Terhubung presisi ke kotak nomor berikutnya */
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+:root[data-theme="dark"] .care-step-segment-line {
+  background-color: #1E293B;
+}
+
+.care-step-segment-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background-color: var(--color-accent, #DC2626);
+  transition: width 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.care-step-segment-fill.is-filled {
+  width: 100%;
+}
+
+/* 4 Kolom Grid Kartu Interaktif */
+.care-pipeline-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1rem, 2vw, 1.75rem);
+  position: relative;
+  z-index: 2;
+}
+
+/* Kartu Interaktif Tahapan */
+.care-step-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  padding: 1.25rem;
+  background-color: var(--color-surface, #FFFFFF);
+  border: 1px solid var(--color-border, #E2E8F0);
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  user-select: none;
+  outline: none;
+}
+
+:root[data-theme="dark"] .care-step-card {
+  background-color: #0F172A;
+  border-color: #1E293B;
+}
+
+.care-step-card:hover {
+  border-color: #94A3B8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.06);
+}
+
+:root[data-theme="dark"] .care-step-card:hover {
+  border-color: #475569;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.care-step-card:focus-visible {
+  border-color: var(--color-accent, #DC2626);
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.25);
+}
+
+/* State Aktif Kartu */
+.care-step-card--active {
+  border: 2px solid var(--color-accent, #DC2626);
+  background-color: #FEF2F2;
+  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.12);
+}
+
+:root[data-theme="dark"] .care-step-card--active {
+  background-color: rgba(220, 38, 38, 0.08);
+  border-color: #DC2626;
+  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.2);
+}
+
+/* Status Bar di Header Kartu */
+.care-card-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.care-card-stage-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary, #64748B);
+  text-transform: uppercase;
+}
+
+:root[data-theme="dark"] .care-card-stage-label {
+  color: #94A3B8;
+}
+
+.care-step-card--active .care-card-stage-label {
+  color: var(--color-accent, #DC2626);
+}
+
+:root[data-theme="dark"] .care-step-card--active .care-card-stage-label {
+  color: #F87171;
+}
+
+/* Status Pill Interaktif */
+.care-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: all 140ms ease;
+}
+
+.care-status-pill--active {
+  background-color: #DC2626;
+  color: #FFFFFF;
+}
+
+.care-status-pill--idle {
+  background-color: var(--color-surface-muted, #F1F5F9);
+  color: var(--color-text-secondary, #64748B);
+  border: 1px solid var(--color-border, #E2E8F0);
+}
+
+:root[data-theme="dark"] .care-status-pill--idle {
+  background-color: #1E293B;
+  color: #94A3B8;
+  border-color: #334155;
+}
+
+.care-step-card:hover .care-status-pill--idle {
+  background-color: #FEF2F2;
+  color: #DC2626;
+  border-color: #DC2626;
+}
+
+:root[data-theme="dark"] .care-step-card:hover .care-status-pill--idle {
+  background-color: rgba(220, 38, 38, 0.2);
+  color: #F87171;
+  border-color: #DC2626;
+}
+
+.care-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  display: inline-block;
+  animation: carePulse 1.8s infinite ease-in-out;
+}
+
+@keyframes carePulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+
+/* Isi Teks Kolom */
+.care-step-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4375rem;
+}
+
+.care-step-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-primary, #0F172A);
+  margin: 0;
+  line-height: 1.35;
+}
+
+:root[data-theme="dark"] .care-step-title {
+  color: #F8FAFC;
+}
+
+.care-step-card--active .care-step-title {
+  color: var(--color-accent, #DC2626);
+}
+
+:root[data-theme="dark"] .care-step-card--active .care-step-title {
+  color: #F87171;
+}
+
+.care-step-desc {
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--color-text-secondary, #475569);
+  margin: 0;
+}
+
+:root[data-theme="dark"] .care-step-desc {
+  color: #94A3B8;
+}
+
+/* Micro-label & Pill Badge Produk Terkait */
+.care-step-products-group {
+  margin-top: 0.625rem;
+  padding-top: 0.625rem;
+  border-top: 1px solid var(--color-border, #E2E8F0);
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+:root[data-theme="dark"] .care-step-products-group {
+  border-top-color: #1E293B;
+}
+
+.care-step-products-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary, #64748B);
+}
+
+:root[data-theme="dark"] .care-step-products-label {
+  color: #94A3B8;
+}
+
+.care-step-pills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.care-product-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background-color: #FEF2F2;
+  color: var(--color-accent, #DC2626);
+  border: 1px solid #FECACA;
+  padding: 0.25rem 0.5625rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 140ms ease;
+  text-align: left;
+}
+
+.care-product-pill:hover {
+  background-color: var(--color-accent, #DC2626);
+  color: #FFFFFF;
+  border-color: var(--color-accent, #DC2626);
+}
+
+:root[data-theme="dark"] .care-product-pill {
+  background-color: rgba(220, 38, 38, 0.15);
+  border-color: rgba(220, 38, 38, 0.3);
+  color: #F87171;
+}
+
+:root[data-theme="dark"] .care-product-pill:hover {
+  background-color: #DC2626;
+  border-color: #DC2626;
+  color: #FFFFFF;
+}
+
+/* ====================================================================
+   BAGIAN BAWAH: ACTIVE STAGE TECHNICAL WORKBENCH CARD
+   (Kontainer Putih/Gelap dengan Aksen Garis Merah Vertikal Sisi Kiri)
+   ==================================================================== */
+
+.care-workbench-card {
+  background-color: var(--color-surface, #FFFFFF);
+  border: 1px solid var(--color-border, #E2E8F0);
+  border-left: 4px solid var(--color-accent, #DC2626);
+  border-radius: 16px;
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+  transition: background-color 200ms ease, border-color 200ms ease;
+}
+
+:root[data-theme="dark"] .care-workbench-card {
+  background-color: #111827;
+  border-color: #1E293B;
+  border-left-color: #DC2626;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* Header Baris Workbench */
+.care-workbench-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-bottom: 1.125rem;
+  border-bottom: 1px solid var(--color-border, #E2E8F0);
+}
+
+:root[data-theme="dark"] .care-workbench-header {
+  border-bottom-color: #1E293B;
+}
+
+.care-workbench-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.care-workbench-badge {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent, #DC2626);
+  background-color: #FEF2F2;
+  border: 1px solid #FECACA;
+  padding: 0.25rem 0.6875rem;
+  border-radius: 9999px;
+}
+
+:root[data-theme="dark"] .care-workbench-badge {
+  background-color: rgba(220, 38, 38, 0.15);
+  border-color: rgba(220, 38, 38, 0.3);
+  color: #F87171;
+}
+
+.care-workbench-title {
+  font-size: 1.1875rem;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  color: var(--color-text-primary, #0F172A);
+  margin: 0;
+}
+
+:root[data-theme="dark"] .care-workbench-title {
+  color: #F8FAFC;
+}
+
+/* Tombol Navigasi Cepat (< Sebelumnya | Selanjutnya >) */
+.care-workbench-nav-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3125rem;
+  background-color: var(--color-surface-muted, #F8FAFC);
+  border: 1px solid var(--color-border, #E2E8F0);
+  padding: 0.25rem 0.375rem;
+  border-radius: 8px;
+}
+
+:root[data-theme="dark"] .care-workbench-nav-actions {
+  background-color: #090D16;
+  border-color: #1E293B;
+}
+
+.care-workbench-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3125rem;
+  background: none;
+  border: none;
+  padding: 0.375rem 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-secondary, #475569);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 140ms ease;
+}
+
+:root[data-theme="dark"] .care-workbench-nav-btn {
+  color: #94A3B8;
+}
+
+.care-workbench-nav-btn:hover:not(:disabled) {
+  background-color: #FFFFFF;
+  color: var(--color-text-primary, #0F172A);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+:root[data-theme="dark"] .care-workbench-nav-btn:hover:not(:disabled) {
+  background-color: #1E293B;
+  color: #F8FAFC;
+}
+
+.care-workbench-nav-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.care-workbench-nav-divider {
+  width: 1px;
+  height: 14px;
+  background-color: var(--color-border, #E2E8F0);
+}
+
+:root[data-theme="dark"] .care-workbench-nav-divider {
+  background-color: #1E293B;
+}
+
+/* ====================================================================
+   WORKBENCH 2-COLUMN BODY:
+   8 Kolom Kiri (Spesifikasi) + 4 Kolom Kanan (Skematik SVG Mobil)
+   ==================================================================== */
+
+.care-workbench-grid {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: 1.75rem;
+  align-items: stretch;
+  margin-top: 1.25rem;
+}
+
+@media (max-width: 1024px) {
+  .care-workbench-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
+
+/* Area Kiri: 3 Spesifikasi Lapangan */
+.care-workbench-specs-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.care-specs-triplet {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 860px) {
+  .care-specs-triplet {
+    grid-template-columns: 1fr;
+    gap: 0.875rem;
+  }
+}
+
+.care-spec-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4375rem;
+  background-color: var(--color-surface-muted, #F8FAFC);
+  border: 1px solid var(--color-border, #E2E8F0);
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+}
+
+:root[data-theme="dark"] .care-spec-item {
+  background-color: #090D16;
+  border-color: #1E293B;
+}
+
+.care-spec-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary, #64748B);
+}
+
+:root[data-theme="dark"] .care-spec-label {
+  color: #94A3B8;
+}
+
+.care-spec-text {
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--color-text-primary, #0F172A);
+  margin: 0;
+}
+
+:root[data-theme="dark"] .care-spec-text {
+  color: #F8FAFC;
+}
+
+.care-spec-footer-row {
+  margin-top: 0.625rem;
+  padding-top: 0.625rem;
+  border-top: 1px solid var(--color-border, #E2E8F0);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3125rem;
+}
+
+:root[data-theme="dark"] .care-spec-footer-row {
+  border-top-color: #1E293B;
+}
+
+.care-spec-sublabel {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.5625rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent, #DC2626);
+}
+
+:root[data-theme="dark"] .care-spec-sublabel {
+  color: #F87171;
+}
+
+.care-spec-pills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3125rem;
+}
+
+.care-spec-clickable-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3125rem;
+  background-color: #FFFFFF;
+  border: 1px solid #FECACA;
+  color: var(--color-accent, #DC2626);
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 140ms ease;
+}
+
+.care-spec-clickable-pill:hover {
+  background-color: var(--color-accent, #DC2626);
+  border-color: var(--color-accent, #DC2626);
+  color: #FFFFFF;
+}
+
+:root[data-theme="dark"] .care-spec-clickable-pill {
+  background-color: #111827;
+  border-color: rgba(220, 38, 38, 0.3);
+  color: #F87171;
+}
+
+:root[data-theme="dark"] .care-spec-clickable-pill:hover {
+  background-color: #DC2626;
+  border-color: #DC2626;
+  color: #FFFFFF;
+}
+
+/* ====================================================================
+   AREA KANAN: 2D TECHNICAL SVG VEHICLE ZONE SCHEMATIC
+   ==================================================================== */
+
+.care-workbench-schematic-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.care-schematic-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.75rem;
+  background-color: var(--color-surface-muted, #F8FAFC);
+  border: 1px solid var(--color-border, #E2E8F0);
+  border-radius: 12px;
+  padding: 1rem;
+  height: 100%;
+}
+
+:root[data-theme="dark"] .care-schematic-card {
+  background-color: #090D16;
+  border-color: #1E293B;
+}
+
+.care-schematic-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.care-schematic-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.care-schematic-icon {
+  color: var(--color-accent, #DC2626);
+}
+
+.care-schematic-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary, #64748B);
+}
+
+:root[data-theme="dark"] .care-schematic-label {
+  color: #94A3B8;
+}
+
+.care-schematic-badge {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--color-accent, #DC2626);
+  background-color: #FEF2F2;
+  border: 1px solid #FECACA;
+  padding: 0.1875rem 0.5rem;
+  border-radius: 4px;
+}
+
+:root[data-theme="dark"] .care-schematic-badge {
+  background-color: rgba(220, 38, 38, 0.15);
+  border-color: rgba(220, 38, 38, 0.3);
+  color: #F87171;
+}
+
+/* Canvas SVG */
+.care-schematic-canvas {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-surface, #FFFFFF);
+  border: 1px solid var(--color-border, #E2E8F0);
+  border-radius: 8px;
+  padding: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+:root[data-theme="dark"] .care-schematic-canvas {
+  background-color: #0B0F19;
+  border-color: #1E293B;
+}
+
+.care-car-svg {
+  width: 100%;
+  height: auto;
+  max-height: 180px;
+  display: block;
+}
+
+/* SVG Colors & Styles */
+.care-svg-grid-stroke {
+  stroke: #E2E8F0;
+}
+
+:root[data-theme="dark"] .care-svg-grid-stroke {
+  stroke: #1E293B;
+}
+
+.care-svg-ground {
+  color: #CBD5E1;
+}
+
+:root[data-theme="dark"] .care-svg-ground {
+  color: #334155;
+}
+
+.care-svg-micro-text {
+  font-family: monospace;
+  font-size: 7.5px;
+  font-weight: 700;
+  fill: #94A3B8;
+  letter-spacing: 0.08em;
+}
+
+:root[data-theme="dark"] .care-svg-micro-text {
+  fill: #64748B;
+}
+
+/* Base Car Wireframe */
+.care-car-outline {
+  stroke: #94A3B8;
+  stroke-linejoin: round;
+}
+
+:root[data-theme="dark"] .care-car-outline {
+  stroke: #475569;
+}
+
+.care-car-shutline {
+  stroke: #CBD5E1;
+}
+
+:root[data-theme="dark"] .care-car-shutline {
+  stroke: #334155;
+}
+
+.care-car-detail {
+  fill: #94A3B8;
+}
+
+:root[data-theme="dark"] .care-car-detail {
+  fill: #475569;
+}
+
+.care-rim-line {
+  stroke: #94A3B8;
+}
+
+:root[data-theme="dark"] .care-rim-line {
+  stroke: #475569;
+}
+
+.care-rim-center {
+  color: #64748B;
+}
+
+:root[data-theme="dark"] .care-rim-center {
+  color: #94A3B8;
+}
+
+.care-tire-inner {
+  fill: #F1F5F9;
+  stroke: #CBD5E1;
+  stroke-width: 1.2;
+}
+
+:root[data-theme="dark"] .care-tire-inner {
+  fill: #1E293B;
+  stroke: #334155;
+}
+
+/* Vehicle Zones */
+.care-car-zone {
+  cursor: pointer;
+  outline: none;
+}
+
+.care-zone-fill {
+  fill: rgba(226, 232, 240, 0.25);
+  stroke: #CBD5E1;
+  stroke-width: 1;
+  transition: all 180ms ease;
+}
+
+:root[data-theme="dark"] .care-zone-fill {
+  fill: rgba(30, 41, 59, 0.25);
+  stroke: #334155;
+}
+
+.care-car-zone:hover .care-zone-fill {
+  fill: rgba(220, 38, 38, 0.12);
+  stroke: rgba(220, 38, 38, 0.5);
+}
+
+/* State Zona Aktif (Merah ATVIA #DC2626 + Pulse Halus) */
+.care-car-zone--active .care-zone-fill {
+  fill: rgba(220, 38, 38, 0.24);
+  stroke: #DC2626;
+  stroke-width: 1.8;
+  animation: careZonePulse 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+:root[data-theme="dark"] .care-car-zone--active .care-zone-fill {
+  fill: rgba(220, 38, 38, 0.32);
+  stroke: #EF4444;
+}
+
+@keyframes careZonePulse {
+  0% {
+    fill-opacity: 0.7;
+    stroke-opacity: 0.9;
+  }
+  50% {
+    fill-opacity: 1;
+    stroke-opacity: 1;
+    filter: drop-shadow(0 0 4px rgba(220, 38, 38, 0.35));
+  }
+  100% {
+    fill-opacity: 0.7;
+    stroke-opacity: 0.9;
+  }
+}
+
+/* Micro Legend at Bottom */
+.care-schematic-legend {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.375rem;
+}
+
+.care-legend-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 0.3125rem 0.25rem;
+  background-color: var(--color-surface, #FFFFFF);
+  border: 1px solid var(--color-border, #E2E8F0);
+  border-radius: 6px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--color-text-secondary, #475569);
+  cursor: pointer;
+  transition: all 140ms ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+:root[data-theme="dark"] .care-legend-pill {
+  background-color: #111827;
+  border-color: #1E293B;
+  color: #94A3B8;
+}
+
+.care-legend-pill:hover {
+  border-color: #94A3B8;
+  color: var(--color-text-primary, #0F172A);
+}
+
+.care-legend-pill--active {
+  background-color: var(--color-accent, #DC2626);
+  border-color: var(--color-accent, #DC2626);
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+:root[data-theme="dark"] .care-legend-pill--active {
+  background-color: #DC2626;
+  border-color: #DC2626;
+  color: #FFFFFF;
+}
+
+.care-legend-pill__num {
+  font-family: monospace;
+  font-size: 0.625rem;
+  opacity: 0.8;
+}
+
+.care-legend-pill__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.care-legend-pill__icon {
+  flex-shrink: 0;
+}
+
+/* ====================================================================
+   PRODUCT PILL QUICK-POPOVER / MODAL DRAWER
+   ==================================================================== */
+
+.care-popover-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background-color: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: careFadeIn 160ms ease-out;
+}
+
+.care-popover-card {
+  width: 100%;
+  max-width: 440px;
+  background-color: var(--color-surface, #FFFFFF);
+  border: 1px solid var(--color-border, #E2E8F0);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  animation: careScaleUp 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root[data-theme="dark"] .care-popover-card {
+  background-color: #111827;
+  border-color: #1E293B;
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.7);
+}
+
+@keyframes careFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes careScaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.care-popover-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.care-popover-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  flex-wrap: wrap;
+}
+
+.care-popover-cat {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--color-text-secondary, #64748B);
+  text-transform: uppercase;
+}
+
+:root[data-theme="dark"] .care-popover-cat {
+  color: #94A3B8;
+}
+
+.care-popover-vol {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--color-accent, #DC2626);
+  background-color: #FEF2F2;
+  padding: 0.125rem 0.375rem;
+  border-radius: 4px;
+}
+
+:root[data-theme="dark"] .care-popover-vol {
+  background-color: rgba(220, 38, 38, 0.15);
+  color: #F87171;
+}
+
+.care-popover-badge {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: #B45309;
+  background-color: #FEF3C7;
+  padding: 0.125rem 0.375rem;
+  border-radius: 4px;
+}
+
+:root[data-theme="dark"] .care-popover-badge {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #FBBF24;
+}
+
+.care-popover-close-btn {
+  background: none;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary, #64748B);
+  cursor: pointer;
+  transition: all 140ms ease;
+}
+
+.care-popover-close-btn:hover {
+  background-color: #F1F5F9;
+  color: #0F172A;
+}
+
+:root[data-theme="dark"] .care-popover-close-btn:hover {
+  background-color: #1E293B;
+  color: #F8FAFC;
+}
+
+.care-popover-title {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--color-text-primary, #0F172A);
+  margin: 0;
+  letter-spacing: -0.015em;
+}
+
+:root[data-theme="dark"] .care-popover-title {
+  color: #F8FAFC;
+}
+
+.care-popover-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1875rem;
+  background-color: var(--color-surface-muted, #F8FAFC);
+  border: 1px solid var(--color-border, #E2E8F0);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+}
+
+:root[data-theme="dark"] .care-popover-field {
+  background-color: #090D16;
+  border-color: #1E293B;
+}
+
+.care-popover-field-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.5625rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-accent, #DC2626);
+}
+
+:root[data-theme="dark"] .care-popover-field-label {
+  color: #F87171;
+}
+
+.care-popover-field-text {
+  font-size: 0.78125rem;
+  font-weight: 600;
+  color: var(--color-text-primary, #0F172A);
+  margin: 0;
+}
+
+:root[data-theme="dark"] .care-popover-field-text {
+  color: #F8FAFC;
+}
+
+.care-popover-summary {
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--color-text-secondary, #475569);
+  margin: 0;
+}
+
+:root[data-theme="dark"] .care-popover-summary {
+  color: #94A3B8;
+}
+
+.care-popover-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.375rem;
+}
+
+.care-popover-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4375rem;
+  background-color: var(--color-accent, #DC2626);
+  color: #FFFFFF;
+  padding: 0.6875rem 1rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 140ms ease;
+}
+
+.care-popover-btn-primary:hover {
+  background-color: var(--color-accent-hover, #B91C1C);
+}
+
+.care-popover-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4375rem;
+  background-color: var(--color-surface, #FFFFFF);
+  border: 1px solid var(--color-border, #E2E8F0);
+  color: var(--color-text-primary, #0F172A);
+  padding: 0.625rem 1rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 140ms ease;
+}
+
+:root[data-theme="dark"] .care-popover-btn-secondary {
+  background-color: #090D16;
+  border-color: #1E293B;
+  color: #F8FAFC;
+}
+
+.care-popover-btn-secondary:hover {
+  background-color: #F8FAFC;
+  border-color: #0F172A;
+}
+
+:root[data-theme="dark"] .care-popover-btn-secondary:hover {
+  background-color: #1E293B;
+  border-color: #334155;
+}
+
+/* ====================================================================
+   RESPONSIVE DESIGN (TABLET & MOBILE)
+   ==================================================================== */
+
+@media (max-width: 900px) {
+  .care-pipeline-hint-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .care-stepper-track-bar {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .care-step-node-btn {
+    width: 100%;
+    height: 42px;
+    font-size: 1rem;
+  }
+
+  .care-step-segment-line {
+    display: none; /* Sembunyikan garis perpanjangan di mobile grid */
+  }
+
+  .care-pipeline-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .care-step-card {
+    padding: 1rem;
+  }
+
+  .care-schematic-legend {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

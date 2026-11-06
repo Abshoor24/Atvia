@@ -1,0 +1,143 @@
+.products-section {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+/* Interactive Filter Bar */
+.products-filter {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin-bottom: 2rem;
+}
+
+.products-filter__btn {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  background-color: var(--color-surface-subtle);
+  border: 1px solid var(--color-border);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.products-filter__btn:hover {
+  color: var(--color-ink);
+  border-color: #C8CCD2;
+  transform: translateY(-1px);
+}
+
+.products-filter__btn--active {
+  color: #FFFFFF;
+  background-color: var(--color-brand-red);
+  border-color: var(--color-brand-red);
+  box-shadow: 0 4px 12px var(--color-brand-red-glow);
+}
+
+.products-filter__btn--active:hover {
+  color: #FFFFFF;
+  background-color: var(--color-brand-red-hover);
+  border-color: var(--color-brand-red-hover);
+}
+
+/* Editorial Insight when filtered */
+.products-filter__insight {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: var(--color-brand-red-light);
+  border: 1px solid var(--color-brand-red-glow);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.75rem;
+  font-size: 0.875rem;
+  color: var(--color-ink);
+  font-weight: 500;
+  flex-wrap: wrap;
+}
+
+.products-filter__insight-icon {
+  font-size: 1rem;
+  color: var(--color-brand-red);
+}
+
+.products-filter__insight-reset {
+  margin-left: auto;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-brand-red);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.products-filter__insight-reset:hover {
+  color: var(--color-brand-red-hover);
+}
+
+/* Default Layout: Featured (1 full) + Grid (4 cols) */
+.products-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.products-layout__featured {
+  width: 100%;
+}
+
+/* Desktop (>= 1024px): 4 kolom sama lebar */
+.products-layout__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+/* Filtered Grid: adapts to 1, 2, or 3 items cleanly */
+.products-layout__filtered-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+/* Tablet (640px – 1023px): 2 kolom */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .products-layout {
+    gap: 1.5rem;
+  }
+
+  .products-layout__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+/* Mobile (< 640px): 1 kolom */
+@media (max-width: 639px) {
+  .products-layout {
+    gap: 1.25rem;
+  }
+
+  .products-layout__grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .products-filter {
+    gap: 0.5rem;
+  }
+
+  .products-filter__btn {
+    font-size: 0.8125rem;
+    padding: 0.4rem 0.85rem;
+  }
+}
